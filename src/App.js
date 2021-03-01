@@ -1,16 +1,16 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import createDid from "./createDid.js";
+import ButtonCreateDid from './components/buttonCreateDid'
 
 const App = () => {
-  // Uncomment to create DID
-  createDid();
-  
+
   return (
-    <div className="App">
-      <h1>helloworld</h1>
+    <div>
+      {/* click this button to create a DID and upload to database and display it*/}
+      <ButtonCreateDid />
     </div>
+
   );
 };
 
