@@ -5,8 +5,8 @@ const didController = require("../controllers/didController");
 router.route("/")
   .get(didController.read);
 
-// router.route("/:id")
-//   .get(didlistController.readOne);
+router.route("/:publicAddress")
+  .get(didController.readOne);
 
 router.route("/add")
   .post(didController.create);
