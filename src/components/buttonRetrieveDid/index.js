@@ -9,10 +9,10 @@ import Container from "@material-ui/core/Container";
 const ButtonRetrieveDid = () => {
   const [retrieveAddress, setRetrieveAddress] = useState('');
 
-  const identityRetrieve = (e) => {
+  const identityRetrieve = async (e) => {
     e.preventDefault();
     //call retrieve function
-    const retrievedDid = retrieveDid(retrieveAddress);
+    const retrievedDid = retrieveDid(retrieveAddress).then(console.log('retrieving done, now display'));
     console.log("this is retrievedDid, should be null for now", retrievedDid);
     // const tempDid = retrievedDid[]
   }

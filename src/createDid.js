@@ -1,7 +1,8 @@
 import axios from "axios";
 import EthrDID from "ethr-did";
 
-const createDid = () => {
+const createDid = (alias) => {
+
   const keypair = EthrDID.createKeyPair();
   const ethrDid = new EthrDID({
     address: keypair.address,
@@ -11,7 +12,7 @@ const createDid = () => {
   //uncomment to post this DID to MongoDB database
   axios
     .post("http://localhost:5000/did/add", {
-      alias: "KwanXhen",
+      alias: alias,
       identity: ethrDid.did,
       publicAddress: keypair.address,
       privateKey: keypair.privateKey,
