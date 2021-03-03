@@ -9,7 +9,7 @@ module.exports = {
   },
   readOne: function (req, res) {
     //req.params gives you the id here
-    console.log("readOne req --- ", req);
+    // console.log("readOne req --- ", req);
     // Did.findById(req.params);
     Did.findOne({ publicAddress: req.params.publicAddress })
       .then((retrievedDid) => res.json(retrievedDid))
