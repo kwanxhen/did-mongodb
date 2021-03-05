@@ -13,6 +13,7 @@ const App = () => {
       <ButtonCreateDid />
       <ButtonRetrieveDid />
       <ButtonResolveDid />
+      <NewBranchDid />
     </div>
 
   );
