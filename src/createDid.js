@@ -19,7 +19,7 @@ const createDid = (alias) => {
     })
     .then((response) => {
       console.log("did is created and uploaded onto database");
-      console.log(response.data);
+      // console.log('response data:', response.data);
     })
     .catch((error) => {
       console.log(error);

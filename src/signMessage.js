@@ -1,26 +1,42 @@
-import EthrDID from 'ethr-did';
-import createDid from './createDid';
+import EthrDID from "ethr-did";
+import createDid from "./createDid";
+import { verifyJWT } from "did-jwt";
+import { Resolver } from "did-resolver";
+import { getResolver } from "ethr-did-resolver";
+import retrieveDid from './retrieveDid';
 
-//later implementation can include a message variable to be passed into this signmessage function
 const signMessage = async () => {
-  const temp = createDid('Tiffany'); //note that at this point, a did is created and the relevant details are already uploaded to mongodb
-  let ethrDid = temp[0]; //getback a ethrDid from the createDid function
-  console.log(ethrDid)
-  //note that we can do a retrieveDid here also
-  //we use createdid to demo only
 
-  //message payload hello: 'world'
-  const helloJWT = await ethrDid.signJWT({hello: 'world'});
+  const temp = createDid("Alice");
+  let ethrDid = temp[0];
+  console.log("--- Alice DID:", ethrDid);
 
-  console.log('this is hellowjwt', helloJWT);
-  
-  // const {payload, issuer} = ethrDid.verifyJWT('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJpYXQiOjE1MzE4Mjk5NzUsImF1ZCI6ImRpZDpldGhyOltvYmplY3QgT2JqZWN0XSIsImV4cCI6MTk1NzQ2MzQyMSwibmFtZSI6InVQb3J0IERldmVsb3BlciIsImlzcyI6ImRpZDpldGhyOltvYmplY3QgT2JqZWN0XSJ9.Mralpbz1Lo7DRsrWX7EYvtKDr8NAJWnf0Mgt4y8Eyu-WDNEHmZFwsTw_vG09zYGCM38RHEPeRTftRIYL__WMPg')
-  console.log('---- payload is ', payload);
-  console.log('---- issuer is ', issuer);
+  const helloJWT = await ethrDid.signJWT({ hello: "world" });
+  console.log(helloJWT);
 
-  return helloJWT;
-}
+  //run resolver config here
+  const providerConfig = {
+    rpcUrl: "https://ropsten.infura.io/v3/a10e367404ae4c3ab0eae42eba9b05bb",
+  };
+  const ethrDidResolver = getResolver(providerConfig);
+  let resolver = new Resolver(ethrDidResolver);
+  // const { payload, issuer } = await verifyJWT(helloJWT, { resolver });
+  // console.log("payload: ", payload);
+  // console.log("issuer: ", issuer);
 
-export default signMessage 
+  const verifiedObj = await verifyJWT(helloJWT, { resolver });
+  console.log(verifiedObj);
 
-  //with this ethrDid we can run our demo of signing and verifyin a JWT
+  // see also https://github.com/decentralized-identity/ethr-did-resolver#multi-network-configuration
+
+  // const providerConfig = {
+  //   rpcUrl: "http://localhost:7545",
+  //   registry: "0xf47B6D5Bb660AacA3e586287d5891E1Da54c212C",
+  // };
+  // dont understand what is registry for
+  // 0xdca7ef03e98e0dc2b855be647c39abe984fcf21b
+
+  return null;
+};
+
+export default signMessage;
