@@ -8,7 +8,6 @@ const createDid = (alias) => {
     address: keypair.address,
     privateKey: keypair.privateKey,
   });
-
   //uncomment to post this DID to MongoDB database
   axios
     .post("http://localhost:5000/did/add", {
@@ -16,6 +15,7 @@ const createDid = (alias) => {
       identity: ethrDid.did,
       publicAddress: keypair.address,
       privateKey: keypair.privateKey,
+      ethrDid: ethrDid,
     })
     .then((response) => {
       console.log("did is created and uploaded onto database");

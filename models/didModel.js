@@ -5,7 +5,7 @@ const didSchema = new mongoose.Schema({
   identity: String,
   publicAddress: String,
   privateKey: String,
-  
+  ethrDid: Object,
 })
 
 const Did = mongoose.model('did', didSchema);

@@ -4,7 +4,7 @@ import ButtonCreateDid from './buttonCreateDid'
 const MainPage = () => {
   return (
     <React.Fragment>
-      <ButtonCreateDid />
+      {/* <ButtonCreateDid /> */}
     </React.Fragment>
   )
 }

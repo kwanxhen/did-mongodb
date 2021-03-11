@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ButtonCreateDid from './components/buttonCreateDid'
 import ButtonRetrieveDid from "./components/buttonRetrieveDid";
 import ButtonSignMessageDemo from './components/buttonSignMessageDemo';
+import SignMessageContainer from './components/signMessageContainer';
 
 const App = () => {
 
@@ -12,7 +13,7 @@ const App = () => {
       {/* click this button to create a DID and upload to database and display it*/}
       <ButtonCreateDid />
       <ButtonRetrieveDid />
-      <ButtonSignMessageDemo />
+      <SignMessageContainer />
     </div>
 
   );
