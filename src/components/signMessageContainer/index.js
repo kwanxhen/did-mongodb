@@ -40,8 +40,8 @@ const SignMessageContainer = () => {
     //display signed message
     //display JWT
     <React.Fragment>
-      <Container style={{ marginTop: "80px", marginBottom: "200px" }}>
-        <Typography variant="h4" style={{ marginBottom: "15px" }}>
+      <Container style={{ marginTop: "80px" }}>
+        <Typography variant="h5" style={{ marginBottom: "15px" }}>
           Sign message demo
         </Typography>
         <form onSubmit={buttonHandler}>
