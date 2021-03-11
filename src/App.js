@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ButtonCreateDid from './components/buttonCreateDid'
 import ButtonRetrieveDid from "./components/buttonRetrieveDid";
 import SignMessageContainer from './components/signMessageContainer';
+import VerifyMessageContainer from './components/verifyMessageContainer'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
       <ButtonCreateDid />
       <ButtonRetrieveDid />
       <SignMessageContainer />
+      <VerifyMessageContainer />
     </div>
 
   );
