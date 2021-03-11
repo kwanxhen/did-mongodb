@@ -3,7 +3,6 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ButtonCreateDid from './components/buttonCreateDid'
 import ButtonRetrieveDid from "./components/buttonRetrieveDid";
-import ButtonSignMessageDemo from './components/buttonSignMessageDemo';
 import SignMessageContainer from './components/signMessageContainer';
 
 const App = () => {
