@@ -27,7 +27,6 @@ const SignMessageContainer = () => {
 
     const jwt = await ethrDid.signJWT(messageObj);
     setMessageJwt(jwt);
-
   };
 
   const buttonHandler = (e) => {
@@ -42,7 +41,9 @@ const SignMessageContainer = () => {
     //display JWT
     <React.Fragment>
       <Container style={{ marginTop: "80px", marginBottom: "200px" }}>
-        <Typography variant='h4' style={{marginBottom: "15px"}}>Sign message demo</Typography>
+        <Typography variant="h4" style={{ marginBottom: "15px" }}>
+          Sign message demo
+        </Typography>
         <form onSubmit={buttonHandler}>
           <Input
             value={signerAlias}
@@ -53,7 +54,7 @@ const SignMessageContainer = () => {
             type="text"
             name="signerAlias"
             required
-            style={{marginRight: "15px"}}
+            style={{ marginRight: "15px" }}
           />
           <Input
             value={message}
